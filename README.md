@@ -1,5 +1,7 @@
 # Autonomous Driving (Learning)
 
+This code is followed by the tutorial in Chinese [here](https://zhuanlan.zhihu.com/p/113616755). Author also provided code for this tutorial in this [repo](https://github.com/Little-Potato-1990/localization_in_auto_driving), however it is in ROS 1 and currently not maintained. My implementation is based on his repo and written to be compatible with ROS 2 humble. Translation to English (Vietnamese) will be added when I have time :).
+
 ## KITTI dataset
 Check file `sample_downloader.sh`
 
