@@ -1,0 +1,4 @@
+/tf_static:
+  durability: transient_local
+  reliability: reliable
+  depth: 10
