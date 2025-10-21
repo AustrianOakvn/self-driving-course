@@ -19,13 +19,16 @@ int main(int argc, char *argv[]){
   FLAGS_alsologtostderr = 1;
 
   rclcpp::init(argc, argv);
+  // Declaring one node
   auto node = std::make_shared<rclcpp::Node>("test_frame_node");
-
+  
+  // Declaring subscriber and attached to node
   std::shared_ptr<CloudSubscriber> cloud_sub_ptr = std::make_shared<CloudSubscriber>(node, "/kitti/velo/pointcloud", 100000);
   std::shared_ptr<GNSSSubscriber> gnss_sub_ptr = std::make_shared<GNSSSubscriber>(node, "/kitti/oxts/gps/fix", 100000);
   std::shared_ptr<IMUSubscriber> imu_sub_ptr = std::make_shared<IMUSubscriber>(node, "/kitti/oxts/imu", 100000);
   std::shared_ptr<TFListener> lidar_to_imu_ptr = std::make_shared<TFListener>(node, "imu_link", "velo_link");
-
+  
+  // Declaring publisher and attached to node
   std::shared_ptr<CloudPublisher> cloud_pub_ptr = std::make_shared<CloudPublisher>(node, "current_scan", "/world", 100);
   std::shared_ptr<OdometryPublisher> odom_pub_ptr = std::make_shared<OdometryPublisher>(node, 
                               "lidar_odom",
